@@ -1,13 +1,14 @@
 from fastapi import FastAPI
 
-import jwt
+from .jwt_utils import decode_jwt, encode_jwt
 
 app = FastAPI()
 
 
 @app.get("/test")
 def test():
-    jwt
+    encoded = encode_jwt()
+    decoded = decode_jwt(encoded)
     return None
 
 
