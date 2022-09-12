@@ -12,6 +12,12 @@ def test():
     return None
 
 
+@app.get("validate_token")
+def validate_token(token: str):
+    if not token:
+        return {"message": "Must have a token."}
+
+
 @app.get("/")
 def root():
     return {"message": "Welcome to login_ms!"}
