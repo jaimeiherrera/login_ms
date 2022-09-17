@@ -11,9 +11,9 @@ class User(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
-    is_active = Column(Boolean, default=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    password = Column(String, nullable=False)
+    is_active = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     tokens = relationship("Token", back_populates="owner")
 
@@ -23,7 +23,7 @@ class Token(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
-    token = Column(String)
+    token = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
     expired_at = Column(DateTime, default=datetime.utcnow)
 
