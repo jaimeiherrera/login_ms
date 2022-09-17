@@ -1,0 +1,21 @@
+services:
+  login_ms:
+    container_name: login_ms
+    ports:
+      - '9001:9001'
+    networks:
+      - login_ms_network
+    build: .
+  postgresql:
+    image: postgres
+    container_name: postgresql_db
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=Secret123
+    networks:
+      - login_ms_network
+networks:
+  login_ms_network:
+    driver: bridge
