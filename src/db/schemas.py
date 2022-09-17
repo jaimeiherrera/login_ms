@@ -5,7 +5,7 @@ class TokenBase(BaseModel):
     token: str
 
 
-class ItemCreate(TokenBase):
+class TokenCreate(TokenBase):
     pass
 
 
@@ -28,7 +28,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     is_active: bool
-    items: list[Token] = []
+    tokens: list[Token] = []
 
     class Config:
         orm_mode = True
