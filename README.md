@@ -12,3 +12,7 @@ Optionals
 docker exec -it login_ms_container /bin/bash
 docker logs -f login_ms_container
 ```
+# Run APP
+```
+python main.py
+```
