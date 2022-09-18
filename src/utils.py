@@ -17,8 +17,8 @@ def encoder(str_to_encode: str) -> str:
 
 
 def encode_jwt() -> str:
-    return jwt.encode({"some": "payload"}, config("SECRET"), algorithm=config("ALGORITHM"))
+    return jwt.encode({"some": "payload"}, config("SECRET"), algorithm=config("ALGORITHM", "HS256"))
 
 
 def decode_jwt(encoded_jwt: str) -> str:
-    return jwt.decode(encoded_jwt, config("SECRET"), algorithms=[config("ALGORITHM")])
+    return jwt.decode(encoded_jwt, config("SECRET"), algorithms=[config("ALGORITHM", "HS256")])
