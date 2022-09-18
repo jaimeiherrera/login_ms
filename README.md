@@ -1,14 +1,14 @@
-# fastapi-template
-FastAPI simple template
+# login_ms
+Microservice for login and JWT manage
 
 # Deploy
 ## Dockerfile
 ```
-docker build -t fastapi-template .
-docker run -p 9001:9001 --name fastapi-template-container -d fastapi-template
+docker build -t login_ms_image .
+docker run -p 9001:9001 --name login_ms_container -d login_ms_image
 ```
 Optionals
 ```
-docker exec -it fastapi-template-container /bin/bash
-docker logs -f fastapi-template-container
+docker exec -it login_ms_container /bin/bash
+docker logs -f login_ms_container
 ```
