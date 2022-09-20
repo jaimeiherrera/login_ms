@@ -4,12 +4,15 @@ from sqlalchemy.orm import Session
 
 from .db import crud, models, schemas
 from .db.database import SessionLocal, engine
+from .middleware import RequestMiddleware
 
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="login_ms",
               description="Microservice for login",
               version=config("VERSION", default="v0.1"))
+
+app.add_middleware(RequestMiddleware)
 
 
 def get_db():
